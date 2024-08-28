@@ -16,7 +16,8 @@ struct Add: AsyncParsableCommand {
         guard let gameID = extractIDFrom(url), let gameURL = URL(string: "\(baseURL)\(gameID)")
         else { throw AddCommandError.cantHandleProvidedLink }
 
-        let body = try await Networking.getPageBodyFrom(gameURL)
+        let networking = Networking()
+        let body = try await networking.getPageBodyFrom(gameURL)
         guard let gameMetadata = Parser.parseBody(body)
         else { throw AddCommandError.cantExtractGameMetadata }
 

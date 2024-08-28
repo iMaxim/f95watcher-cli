@@ -1,7 +1,7 @@
 import ArgumentParser
 
 struct List: AsyncParsableCommand {
-    mutating func run() async throws {
+    internal mutating func run() async throws {
         guard let savedGames = JSONStorage().readAllSavedGames() else {
             print("No games saved")
             return

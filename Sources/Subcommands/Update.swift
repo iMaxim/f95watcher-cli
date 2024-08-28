@@ -16,7 +16,7 @@ struct Update: AsyncParsableCommand {
         var updatedGames = try await withThrowingTaskGroup(of: Game.self) { group -> [Game] in
             for savedGame in savedGames {
                 group.addTask {
-                    let body = try await Networking.getPageBodyFrom(savedGame.link)
+                    let body = try await Networking().getPageBodyFrom(savedGame.link)
                     let loadedGameMetadata = Parser.parseBody(body)!
                     return Game(
                         link: savedGame.link,

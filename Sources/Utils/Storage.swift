@@ -44,7 +44,7 @@ struct JSONStorage {
         try updatedData.write(to: dbFilepath, options: .atomic)
     }
 
-    func readAllSavedGames() -> [Game]? {
+    public func readAllSavedGames() -> [Game]? {
         guard fm.fileExists(atPath: dbFilepath.relativePath) else {
             return nil
         }
