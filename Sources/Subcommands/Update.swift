@@ -40,12 +40,12 @@ struct Update: AsyncParsableCommand {
         updatedGames.sort(by: <)
 
         for (savedGame, updatedGame) in zip(savedGames, updatedGames) {
-            print("Comapring \(savedGame.title) and \(updatedGame.title)")
+            // print("Comapring \(savedGame.title) and \(updatedGame.title)")
             if savedGame.version != updatedGame.version {
                 print(
                     """
                     \(updatedGame.title)
-                    \(updatedGame.version) -> \(updatedGame.version)
+                    \(savedGame.version) -> \(updatedGame.version)
                     ---------------------------------------
                     """
                 )
